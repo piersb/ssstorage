@@ -1,29 +1,24 @@
 require 'test_helper'
 class UsersSignupTest < ActionDispatch::IntegrationTest
 
+
+  def setup
+    @user = User.new(name: "Example User",
+                     email: "user@example.com",
+                     password: "password",
+                     password_confirmation: "password")
+  end
+
   test "invalid signup information" do
     get signup_path
     assert_no_difference 'User.count' do
       post signup_path, params: { user: { name: "",
-                                         email: "user@invalid",
-                                         password: "this",
-                                         password_confirmation: "that" } }
+                                          email: "user@invalid",
+                                          password: "this",
+                                          password_confirmation: "that" } }
     end
     assert_template 'users/new'
   end
-
-  def setup
-    @user = User.new(name: "Example User", email: "user@example.com",
-            password: "hellothere", password_confirmation: "hellothere")
-  end
-
-  # test "valid user" do
-  #   get signup_path
-  #   post users_path params: {user: @user.attributes }
-  #   assert_select 'div#error_explanation', false
-  #   assert_select 'div.field_with_errors', false
-  # end
-
 
   test "invalid user name" do
     get signup_path
@@ -63,6 +58,21 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_select 'form[action="/signup"]'
     post users_path params: {user: @user.attributes}
   end
+
+  test "valid signup information" do
+    get signup_path
+    assert_difference 'User.count', 1 do
+      post users_path, params: { user: { name: "Example User",
+                                         email: "user@example.com",
+                                         password: "password",
+                                         password_confirmation: "password" } }
+    end
+    follow_redirect!
+    assert_template 'users/show'
+    assert_not flash.empty?
+  end
+
+
 
 
 end
