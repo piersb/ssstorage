@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A web (and perhaps in the future command-line) interface to Amazon s3 and other storage instances, for the purpose of getting our RPG audio logs off of my computer and freeing up some space.
 
-Things you may want to cover:
+I can't imagine there'll be a great number of people needing this itch scratched, but feel free to fork if so.
 
-* Ruby version
+Some of the user/login code was originally from Michael Hartl's Ruby on Rails Tutorial.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Licenced using the MIT Licence - https://github.com/piersb/ssstorage/blob/master/LICENSE
