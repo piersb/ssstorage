@@ -14,7 +14,6 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     assert_template 'users/index'
     assert_select 'div.pagination', count: 2
     User.where(activated: true).paginate(page: 1).each do |user|
-      puts "testing #{user.name}"
       assert_select 'a[href=?]', user_path(user), text: user.name
     end
     assert_select 'a[href=?]', user_path(@non_activated), text: @non_activated.name, count: 0
