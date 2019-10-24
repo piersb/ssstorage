@@ -26,6 +26,16 @@ class User < ApplicationRecord
 
   end
 
+  # activate an account
+  def activate
+    update_columns(activated: true, activated_at: Time.zone.now)
+  end
+
+  # sends activation email
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
+  end
+
   # Remember a user in the db for use in persistent sessions
   def remember
     self.remember_token = User.new_token
