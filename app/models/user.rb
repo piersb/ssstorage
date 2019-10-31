@@ -73,6 +73,12 @@ class User < ApplicationRecord
   end
 
 
+  # defines a proto-feed
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
+
+
   private
 
   # converts email to lower-case
