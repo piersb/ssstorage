@@ -7,3 +7,14 @@ I can't imagine there'll be a great number of people needing this itch scratched
 Some of the user/login code was originally from Michael Hartl's Ruby on Rails Tutorial.
 
 Licenced using the MIT Licence - https://github.com/piersb/ssstorage/blob/master/LICENSE
+
+New: Now with added vagrant.
+
+* Clone to local
+* vagrant up and type your password when requested
+* vagrant ssh
+* cd /vagrant
+* bundle install --without production
+* rails -b 0.0.0.0
+
+And with luck you should now have a running website on localhost:3000

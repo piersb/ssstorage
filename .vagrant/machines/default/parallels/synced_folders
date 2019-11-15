@@ -1,0 +1,1 @@
+{"nfs":{"/vagrant":{"type":"nfs","guestpath":"/vagrant","hostpath":"/Users/piers/Development/ssstorage","disabled":false,"__vagrantfile":true,"map_uid":501,"map_gid":501,"nfs_version":3,"nfs_udp":true,"uuid":"3669481699"}}}
