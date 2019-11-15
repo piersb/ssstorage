@@ -5,6 +5,7 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:michael)
+    @other = users(:malory)
   end
 
   test "profile display" do
@@ -20,5 +21,12 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "stats" do
+    get root_path
+    assert_select 'div.stats', false
+    log_in_as(@user)
+    get root_path
+    assert_select 'div.stats'
+  end
 
 end
