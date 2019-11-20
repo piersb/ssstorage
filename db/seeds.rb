@@ -20,12 +20,6 @@ User.create!(name: "Example User",
     activated_at: Time.zone.now)
 end
 
-# microposts
-users = User.order(:created_at).take(6)
-50.times do
-  content = Faker::Lorem.sentence(word_count: 5)
-  users.each { |user| user.microposts.create!(content: content) }
-end
 
 # following relationships
 users = User.all
