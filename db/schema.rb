@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_08_114001) do
+ActiveRecord::Schema.define(version: 2019_11_20_162707) do
+
+  create_table "av_files", force: :cascade do |t|
+    t.text "title"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_av_files_on_user_id"
+  end
 
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"

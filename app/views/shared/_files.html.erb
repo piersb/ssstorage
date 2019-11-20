@@ -1,0 +1,6 @@
+<% if @files.any? %>
+  <ol class="files">
+    <%= render @files %>
+  </ol>
+  <%= will_paginate @files %>
+<% end %>
