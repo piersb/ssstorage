@@ -11,4 +11,14 @@ class AVFileTest < ActiveSupport::TestCase
     assert @avfile.valid?
   end
 
+  test "user id should be present" do
+    @avfile.user_id = nil
+    assert_not @avfile.valid?
+  end
+
+  test "avfile must have a title" do
+    @avfile.title = "     "
+    assert_not @avfile.valid?
+  end
+
 end
