@@ -4,7 +4,7 @@ class AVFileTest < ActiveSupport::TestCase
 
   def setup
     @user = users(:michael)
-    @avfile = AVFile.new(title: "hello", user_id: @user.id)
+    @avfile =@user.avfiles.build(title: "My Big Film")
   end
 
   test "should be valid" do
