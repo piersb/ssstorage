@@ -21,6 +21,7 @@ eval "$(rbenv init -)"
 
 rbenv install 2.6.5
 rbenv global 2.6.5
+rbenv rehash
 
 echo installing current RubyGems
 gem update --system -N >/dev/null 2>&1

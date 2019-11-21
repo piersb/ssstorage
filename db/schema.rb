@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_20_162707) do
+ActiveRecord::Schema.define(version: 2019_11_21_160726) do
 
-  create_table "av_files", force: :cascade do |t|
+  create_table "avfiles", force: :cascade do |t|
     t.text "title"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_av_files_on_user_id"
+    t.index ["user_id", "created_at"], name: "index_avfiles_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_avfiles_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
