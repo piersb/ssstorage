@@ -1,9 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# one:
-#   title: MyText
-#   user: 
+colossus:
+  title: "Colossus: The Forbin Project"
+  user: michael 
 
-# two:
-#   title: MyText
-#   user: 
+
