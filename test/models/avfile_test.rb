@@ -3,7 +3,8 @@ require 'test_helper'
 class AVFileTest < ActiveSupport::TestCase
 
   def setup
-    @avfile = avfiles(:colossus)
+    @user = users(:michael)
+    @avfile = @user.avfiles.build(title: "Colossus: The Forbin Project")
   end
 
   test "avfile should be valid" do
@@ -16,7 +17,7 @@ class AVFileTest < ActiveSupport::TestCase
   end
 
   test "avfile should have a name" do
-    @avfile.name = "    "
+    @avfile.title = "    "
     assert_not @avfile.valid?
   end
 
