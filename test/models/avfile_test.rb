@@ -15,6 +15,10 @@ class AVFileTest < ActiveSupport::TestCase
     assert_not @avfile.valid?
   end
 
+  test "avfile should have a name" do
+    @avfile.name = "    "
+    assert_not @avfile.valid?
+  end
 
 
 end
