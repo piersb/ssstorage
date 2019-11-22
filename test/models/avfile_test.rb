@@ -6,10 +6,14 @@ class AVFileTest < ActiveSupport::TestCase
     @avfile = avfiles(:colossus)
   end
 
-  test "avfile is valid" do
+  test "avfile should be valid" do
     assert @avfile.valid?
   end
 
+  test "user id should be present" do
+    @avfile.user_id = nil
+    assert_not @avfile.valid?
+  end
 
 
 
