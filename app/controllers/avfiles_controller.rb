@@ -1,0 +1,2 @@
+class AVFilesController < ApplicationController
+end

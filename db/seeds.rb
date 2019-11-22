@@ -20,6 +20,12 @@ User.create!(name: "Example User",
     activated_at: Time.zone.now)
 end
 
+users = User.order(:created_at).take(6)
+50.times do
+  title = Faker::Book.title
+  users.each {|user| user.avfiles.create!(title: title)}
+end
+
 
 # following relationships
 users = User.all
