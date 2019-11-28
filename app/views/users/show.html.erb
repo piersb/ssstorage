@@ -12,11 +12,7 @@
     </section>
   </aside>
   <div class="col-md-8">
-    <% if @user.avfiles.any? %>
     <h3>AV Files</h3>
-      <ol class="avfiles">
-        <%= render @avfiles %>
-      </ol>
-    <% end %>
+      <%= render 'shared/files' %>
   </div>
 </div>

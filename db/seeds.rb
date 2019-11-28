@@ -21,7 +21,7 @@ User.create!(name: "Example User",
 end
 
 users = User.order(:created_at).take(6)
-50.times do
+99.times do
   title = Faker::Book.title
   users.each {|user| user.avfiles.create!(title: title)}
 end
