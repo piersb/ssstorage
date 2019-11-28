@@ -12,6 +12,11 @@ gem 'bootstrap-will_paginate'
 gem 'carrierwave'
 gem 'mini_magick'
 
+# aws
+gem 'aws-sdk', '~> 3'
+gem 'aws-sdk-rails'
+
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
