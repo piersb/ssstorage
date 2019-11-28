@@ -9,8 +9,20 @@ class UsersController < ApplicationController
   end
 
   def show
+    credentials = Aws::SharedCredentials.new()
+
+    s3 = Aws::S3::Resource.new(region: 'eu-west-2', credentials: credentials)
+
+    bucket = s3.bucket('redmeeple-ssstorage')
+
+    bucket.objects.limit(50).each do |item|
+      puts "Name:  #{item.key}"
+      # puts "URL:   #{item.presigned_url(:get)}"
+    end
+
     @user = User.find(params[:id])
-    @files = @user.avfiles.paginate(page: params[:page])
+
+    # @files = @user.avfiles.paginate(page: params[:page])
     redirect_to root_url and return unless @user.activated?
   end
 
