@@ -9,10 +9,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    credentials = Aws::SharedCredentials.new()
+
+    credentials = Aws::Credentials.new(ENV['S3_ACCESS_KEY'], ENV['S3_SECRET_KEY'])
 
     s3 = Aws::S3::Resource.new(region: 'eu-west-2', credentials: credentials)
-
+# debugger
     bucket = s3.bucket('redmeeple-ssstorage')
 
     bucket.objects.limit(50).each do |item|
