@@ -1,3 +1,3 @@
-<li id="avfile-<%= s3file_counter %>">
-  <span class="avfile-title"><%= s3file.key %></span>
+<li id="avfile-<%= s3file_counter  %>">
+  <span class="avfile-title"><a href="<%= s3file.presigned_url(:get) %>"><%= s3file.key %></a></span>
 </li>

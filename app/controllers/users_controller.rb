@@ -16,7 +16,9 @@ class UsersController < ApplicationController
 
     bucket = s3.bucket('redmeeple-ssstorage')
 
-	@s3files = bucket.objects.limit(50).paginate(page: params[:page])
+
+
+	@s3files = bucket.objects.limit(50)
 
     @user = User.find(params[:id])
 

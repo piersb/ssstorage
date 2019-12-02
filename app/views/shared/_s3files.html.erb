@@ -1,6 +1,5 @@
 <% if @s3files.any? %>
   <ol class="files">
-    <% render partial: 'avfiles/s3file', collection: @s3files %>
+    <%= render partial: 'avfiles/s3file', collection: @s3files %>
   </ol>
-  <%= will_paginate @s3files %>
 <% end %>
