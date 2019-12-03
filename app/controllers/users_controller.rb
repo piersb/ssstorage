@@ -4,25 +4,18 @@ class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
 
 
+
   def new
     @user = User.new
   end
 
   def show
 
-    credentials = Aws::Credentials.new(ENV['S3_ACCESS_KEY'], ENV['S3_SECRET_KEY'])
-
-    s3 = Aws::S3::Resource.new(region: 'eu-west-2', credentials: credentials)
-
-    bucket = s3.bucket('redmeeple-ssstorage')
-
-
-
-	@s3files = bucket.objects.limit(50)
-
     @user = User.find(params[:id])
 
-    # @files = @user.avfiles.paginate(page: params[:page])
+    bucket = AmazonInterface.new.bucket
+    @s3files = bucket.objects.limit(50)
+
     redirect_to root_url and return unless @user.activated?
   end
 
