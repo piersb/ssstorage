@@ -20,10 +20,11 @@ User.create!(name: "Example User",
     activated_at: Time.zone.now)
 end
 
+# avfiles
 users = User.order(:created_at).take(6)
 99.times do
   title = Faker::Book.title
-  users.each {|user| user.avfiles.create!(title: title)}
+  users.each {|user| user.avfiles.create!(title: title, s3reference: title.parameterize)}
 end
 
 
@@ -34,3 +35,5 @@ following = users[2..50]
 followers = users[3..40]
 following.each{ |followed| user.follow(followed) }
 followers.each{ |follower| follower.follow(user) }
+
+

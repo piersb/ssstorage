@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def show
 
     @user = User.find(params[:id])
+    @avfiles = @user.avfiles
 
     bucket = AmazonInterface.bucket
     @s3files = bucket.objects.limit(50)
