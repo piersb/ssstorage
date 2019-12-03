@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
     @user = User.find(params[:id])
 
-    bucket = AmazonInterface.new.bucket
+    bucket = AmazonInterface.bucket
     @s3files = bucket.objects.limit(50)
 
     redirect_to root_url and return unless @user.activated?

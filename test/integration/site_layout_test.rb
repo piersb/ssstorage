@@ -29,15 +29,15 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", edit_user_path
     assert_select "a[href=?]", logout_path
     assert_select "a[href=?]", login_path, false
+    assert_select "h3", 'AV Files'
 
     # home, logged in
     get root_path
     assert_select "a[href=?]", root_path, count: 2
     assert_select "a[href=?]", users_path
-    assert_select "a[href=?]", user_path
-    assert_select "a[href=?]", edit_user_path
     assert_select "a[href=?]", logout_path
     assert_select "a[href=?]", login_path, false
+    assert_select "h3", 'AV Files'
 
 
 
