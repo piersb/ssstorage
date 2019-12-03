@@ -29,7 +29,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", edit_user_path
     assert_select "a[href=?]", logout_path
     assert_select "a[href=?]", login_path, false
-    assert_select "h3", 'AV Files'
+    assert_select "h3", 'All files in bucket'
 
     # home, logged in
     get root_path
@@ -37,7 +37,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", users_path
     assert_select "a[href=?]", logout_path
     assert_select "a[href=?]", login_path, false
-    assert_select "h3", 'AV Files'
+    assert_select "h3", 'All files in bucket'
 
 
 
