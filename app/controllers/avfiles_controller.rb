@@ -1,16 +1,29 @@
 class AVFilesController < ApplicationController
+  before_action :logged_in_user, only: [:create, :destroy]
 
-
-  def show
-    s3 = Aws::S3::Resource.new(region: 'eu-west-2')
-
-    bucket = s3.bucket('redmeeple-ssstorage')
-
-    bucket.objects.limit(50).each do |item|
-      puts "Name:  #{item.key}"
-      # puts "URL:   #{item.presigned_url(:get)}"
+  def create
+    @avfile = current_user.avfiles.create(avfile_params)
+    if @avfile.save
+      flash[:success] = 'avfile created'
+      redirect_to root_url
+    else
+      render 'static_pages/home'
     end
   end
 
+  def destroy
+  end
+
+  def show
+  end
+
+  def edit
+  end
+
+  private
+
+    def avfiles_params
+      params.require(:avfile).permit(:title)
+    end
 
 end
