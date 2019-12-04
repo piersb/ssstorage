@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
     if logged_in?
       @user = current_user
       @avfile = current_user.avfiles.build
+      @avfiles = current_user.avfiles
     end
     puts 'here'
     bucket = AmazonInterface.new.bucket
