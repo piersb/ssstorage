@@ -25,7 +25,7 @@ class AVFilesController < ApplicationController
   private
 
     def avfiles_params
-      params.require(:avfile).permit(:title)
+      params.require(:avfile).permit(:title, :file)
     end
 
 end
