@@ -4,7 +4,7 @@ class AVFileTest < ActiveSupport::TestCase
 
   def setup
     @user = users(:michael)
-    @avfile = @user.avfiles.build(title: "Colossus: The Forbin Project")
+    @avfile = @user.avfiles.build(title: "Colossus: The Forbin Project", file: 'colossus.mp4')
   end
 
   test "avfile should be valid" do
