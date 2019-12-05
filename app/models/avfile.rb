@@ -13,6 +13,8 @@ class AVFile < ApplicationRecord
 
     object = bucket.object(s3reference)
     object.upload_file(file.absolute_path)
+
+    self.update(s3reference: s3reference)
   end
 
 
