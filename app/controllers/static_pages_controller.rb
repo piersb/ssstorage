@@ -6,7 +6,6 @@ class StaticPagesController < ApplicationController
       @avfile = current_user.avfiles.build
       @avfiles = current_user.avfiles
     end
-    puts 'here'
     bucket = AmazonInterface.new.bucket
     @s3files = bucket.objects.limit(50)
   end
