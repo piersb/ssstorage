@@ -22,7 +22,7 @@ end
 
 # avfiles
 users = User.order(:created_at).take(6)
-99.times do
+30.times do
   title = Faker::Book.title
   users.each {|user| user.avfiles.create!(title: title, s3reference: title.parameterize)}
 end

@@ -2,9 +2,7 @@ class AVFile < ApplicationRecord
   belongs_to :user
   validates :user_id, presence: true
   validates :title, presence: true
-  validates :file, presence: true
-
-  attr_accessor :file
+  validates :s3reference, presence: true
 
 
   def create
