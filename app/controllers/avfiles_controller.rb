@@ -17,6 +17,7 @@ class AVFilesController < ApplicationController
   end
 
   def show
+    @avfile = AVFile.find(params[:id])
   end
 
   def edit

@@ -14,5 +14,4 @@ class AVFile < ApplicationRecord
     self.update(s3reference: s3reference)
   end
 
-
 end
