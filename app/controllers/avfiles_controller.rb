@@ -3,6 +3,9 @@ class AVFilesController < ApplicationController
 
   def create
     @avfile = current_user.avfiles.create(avfiles_params)
+    logger.info 'nmn'
+    logger.info avfiles_params
+    logger.info 'uwu'
     if @avfile.save
       flash[:success] = 'avfile created'
       redirect_to root_url
