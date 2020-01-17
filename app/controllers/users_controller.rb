@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
 
 
-
   def new
     @user = User.new
   end
@@ -72,24 +71,22 @@ class UsersController < ApplicationController
 
   private
 
-  def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
-  end
-
-  # before filters
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
 
 
-  # confirms the correct user
+    # confirms the correct user
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
+    end
 
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user)
-  end
+    # confirms admin user
+    def admin_user
+      redirect_to (root_url) unless current_user.admin?
+    end
 
-  # confirms admin user
-  def admin_user
-    redirect_to (root_url) unless current_user.admin?
-  end
 
 
 end
