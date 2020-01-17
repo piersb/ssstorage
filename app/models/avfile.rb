@@ -2,7 +2,7 @@ class AVFile < ApplicationRecord
   belongs_to :user
   validates :user_id, presence: true
   validates :title, presence: true
-  before_commit :set_s3_direct_post, only: :create
+
 
   attr_accessor :file
 
@@ -23,9 +23,6 @@ class AVFile < ApplicationRecord
 
   private
 
-    def set_s3_direct_post
-      @s3_direct_post = AmazonInterface.bucket.presigned_post(key: "#{SecureRandom.uuid}/${filename}", success_action_status: '201')
-    end
 
 
 

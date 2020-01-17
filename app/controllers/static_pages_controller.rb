@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+before_action :set_s3_direct_post
 
   def home
     if logged_in?
@@ -18,5 +19,11 @@ class StaticPagesController < ApplicationController
 
   def contact
   end
+
+  private
+    def set_s3_direct_post
+      @s3_direct_post = AmazonInterface.bucket.presigned_post(key: "#{SecureRandom.uuid}/${filename}", success_action_status: '201')
+    end
+
 
 end
