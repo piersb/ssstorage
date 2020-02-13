@@ -34,6 +34,17 @@ curl --silent --show-error https://cli-assets.heroku.com/install.sh | sh >/dev/n
 
 echo installing git autocomplete
 curl -L --silent https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> /home/vagrant/.git-completion.bash
+
+echo copying across AWS environment variables S3_ACCESS_KEY, S3_SECRET_KEY, AND S3_REGION
+echo ENV['S3_REGION']
+echo export S3_ACCESS_KEY="$S3_ACCESS_KEY"  >> /home/vagrant/.bashrc
+echo export S3_SECRET_KEY="$S3_SECRET_KEY"  >> /home/vagrant/.bashrc
+echo export S3_REGION="$S3_REGION"  >> /home/vagrant/.bashrc
+
+
 cat >> /home/vagrant/.bashrc << EOT
 
 EOT
+
+
+
