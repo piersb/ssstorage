@@ -16,9 +16,13 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder ".", "/vagrant", type: "nfs"
   config.vm.provision :shell, path: "provision/rootstrap.sh"
   config.vm.provision :shell, privileged: false, path: "provision/bootstrap.sh"
-  config.vm.provision :shell, :inline => "sudo rm /etc/localtime && sudo ln -s /usr/share/zoneinfo/Europe/London /etc/localtime",
-                      run: "always",
-                      env: {:S3_REGION => ENV['S3_REGION']}
+  config.vm.provision :shell, :inline => "sudo rm /etc/localtime && sudo ln -s /usr/share/zoneinfo/Europe/London /etc/localtime", run: "always"
+
+  # Move the AWS keys saved in environment variables from your host machine to the vm
+  config.vm.provision :shell, :inline => "echo export S3_REGION=#{ENV['S3_REGION']} >> /home/vagrant/.bashrc", run: "always"
+  config.vm.provision :shell, :inline => "echo export S3_ACCESS_KEY=#{ENV['S3_ACCESS_KEY']} >> /home/vagrant/.bashrc", run: "always"
+  config.vm.provision :shell, :inline => "echo export S3_SECRET_KEY=#{ENV['S3_SECRET_KEY']} >> /home/vagrant/.bashrc", run: "always"
+
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs

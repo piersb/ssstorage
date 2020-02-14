@@ -49,7 +49,7 @@ GEM
     autoprefixer-rails (9.7.4)
       execjs
     aws-eventstream (1.0.3)
-    aws-partitions (1.272.0)
+    aws-partitions (1.273.0)
     aws-sdk (3.0.1)
       aws-sdk-resources (~> 3)
     aws-sdk-accessanalyzer (1.1.0)
@@ -477,7 +477,7 @@ GEM
     aws-sdk-mediapackage (1.25.0)
       aws-sdk-core (~> 3, >= 3.71.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-mediapackagevod (1.8.0)
+    aws-sdk-mediapackagevod (1.9.0)
       aws-sdk-core (~> 3, >= 3.71.0)
       aws-sigv4 (~> 1.1)
     aws-sdk-mediastore (1.21.0)
