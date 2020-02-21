@@ -1,5 +1,7 @@
-
-<%= form_for(@avfile, html: { class: 'directUpload',  data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |f| %>
+<%= form_for(@avfile, html: {class: 'directUpload',
+                             data: {'form-data' => (@s3_direct_post.fields),
+                                    :url => @s3_direct_post.url,
+                                    :host => URI.parse(@s3_direct_post.url).host}}) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
     <%= f.text_field :title, placeholder: "Title" %>
