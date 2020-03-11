@@ -6,11 +6,12 @@ $(function () {
         let url = form.data('url');
         let formData = form.data('form-data');
         let xhr = new XMLHttpRequest();
-        fd = new FormData;
+        let fd = new FormData();
         xhr.open("POST", url, true);
-        fd.append(formData);
-        formData.append("upload_file", elem);
-        xhr.send(fd);
+        xhr.send(formData);
+        fd.append("upload_file", elem);
+        xhr.send(fd)
+
     }
 
 
